@@ -1,6 +1,11 @@
 # CHANGELOG for visualstudio
 
-This file is used to list changes made in each version of visualstudion.
+This file is used to list changes made in each version of visualstudio.
+
+## 0.0.20:
+
+* Updated cookbook to handle multiple versions of Visual Studio.
+* Added setup for Visual Studio 2013
 
 ## 0.0.10:
 
