@@ -1,5 +1,5 @@
 # VisualStudio Cookbook
-This Chef cookbook installs Visual Studio 2012 from an ISO.
+This Chef cookbook installs Visual Studio from an ISO.
 
 # Requirements
 
@@ -39,7 +39,7 @@ By default this cookbook assumes you're installing VisualStudio 2013 Ultimate wi
 Ensures all VisualStudio prereqs are installed first and then only runs the install recipe if they are met. You should add this recipe to your run list.
 
 ## install
-Installs VisualStudio 2012 using the included AdminDeployment.xml. Ensures 7-zip is installed so the ISO can be extracted via the seven_zip cookbook. Included by the default recipe.
+Installs VisualStudio using the included AdminDeployment.xml. Ensures 7-zip is installed so the ISO can be extracted via the seven_zip cookbook. Included by the default recipe.
 
 ## nuget
 Configures the enable_nuget_package_restore environment variable. Included by the default recipe.
