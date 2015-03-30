@@ -18,13 +18,19 @@
 # limitations under the License.
 #
 
-enable_nuget_package_restore = node['visualstudio']['enable_nuget_package_restore']
+vsix_installer_exe = win_friendly_path(
+  File.join(node['visualstudio']['install_dir'], 'Common7\IDE\VSIXInstaller.exe'))
+nuget_vsix = win_friendly_path(
+  File.join(Chef::Config[:file_cache_path], 'NuGet.Tools.vsix'))
 
-# Use setx because the Chef env resource requires a re-login before being available
-execute 'set_allow_nuget_to_auto_update' do
-  command "setx -m EnableNuGetPackageRestore \"#{enable_nuget_package_restore.to_s}\""
-  only_if { ENV['EnableNuGetPackageRestore'] != enable_nuget_package_restore }
+remote_file 'nuget_client' do
+  path nuget_vsix
+  source node['visualstudio']['nuget']['package_src_url']
+  checksum node['visualstudio']['nuget']['checksum']
+  notifies :run, 'execute[nuget_client_install]'
 end
 
-# Set EnableNuGetPackageRestore for this process
-ENV['EnableNuGetPackageRestore'] = enable_nuget_package_restore.to_s
+execute 'nuget_client_install' do
+  command "#{vsix_installer_exe} /q #{nuget_vsix}"
+  action :nothing
+end

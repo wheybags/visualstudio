@@ -18,7 +18,12 @@
 # limitations under the License.
 #
 
-default['visualstudio']['enable_nuget_package_restore'] = true
+# Nuget 2.8.50926.602
+default['visualstudio']['nuget']['checksum'] =
+  'a1365bdd6371c7b101e525bfe4f8d7899d7643ca3e1f05f57c14d70914d40809'
+default['visualstudio']['nuget']['package_src_url'] =
+  'https://visualstudiogallery.msdn.microsoft.com/27077b70-9dad-4c64-adcf-c7cf6bc9970c' +
+  '/file/37502/38/NuGet.Tools.vsix'
 
 default['visualstudio']['edition'] = 'ultimate' # or premium, professional, testprofessional
 

@@ -26,7 +26,6 @@ By default this cookbook assumes you're installing VisualStudio 2012 Ultimate. I
 * `node['visualstudio']['source']` - Required, fully qualified http(s) path to the ISO directory. For example: http://example.com/installs
 
 ## Optional
-* `node['visualstudio']['enable_nuget_package_restore']` - true or false. Sets the system wide environment variable to enable MSBuild/VisualStudio package restore on build. This defaults to true.
 * `node['visualstudio']['checksum']` - SHA256 checksum of the ISO.
 * `node['visualstudio']['package_name']` - The name of the package as it shows in Add/Remove programs. Defaults to Microsoft Visual Studio Ultimate 2012.
 * `node['visualstudio']['installer_file']` - The name of the VisualStudio installer executable. Defaults to vs_ultimate.exe.
@@ -40,7 +39,7 @@ Ensures all VisualStudio prereqs are installed first and then only runs the inst
 Installs VisualStudio 2012 using the included AdminDeployment.xml. Ensures 7-zip is installed so the ISO can be extracted via the seven_zip cookbook. Included by the default recipe.
 
 ## nuget
-Configures the enable_nuget_package_restore environment variable. Included by the default recipe.
+Installs an upgraded NuGet client (2.8.50926.602) into VisualStudio. Included by the default recipe.
 
 ## dotnet_prereq
 Logs a warning if .NET 4.5 is not installed. This is included in the default recipe.
