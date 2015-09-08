@@ -54,7 +54,7 @@ Each VS version/edition pair has their own unique attributes which can be overri
 
 ```ruby
 node.override['visualstudio']['2013']['professional']['checksum'] = 'c4930bb83454a2fcbc762da79a4227e92fdbef7d0b395c619829a36c3fb4ec54'
-node.override['visualstudio']['2013']['professional']['file_name'] = 'My_vs2013.iso'
+node.override['visualstudio']['2013']['professional']['filename'] = 'My_vs2013.iso'
 ```
 
 # Recipes
